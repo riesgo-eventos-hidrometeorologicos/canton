@@ -1,0 +1,352 @@
+---
+title: "Análisis de riesgo ante eventos hidrometeorológicos extremos"
+format: 
+  dashboard:
+    orientation: columns
+    lang: es
+params:
+  codigo_canton: "501"
+---
+
+
+```{r}
+#| label: carga-paquetes
+#| message: false
+#| warning: false
+
+
+library(here)
+library(tidyverse)
+library(plotly)
+library(sf)
+library(leaflet)
+```
+
+
+```{r}
+#| label: constantes
+
+
+# Código del cantón
+CODIGO_CANTON <- params$codigo_canton
+
+
+# Directorio de datos del cantón
+DIRECTORIO_DATOS <- here(
+  "datos",
+  paste0("vulnerabilidad-exposicion-riesgo-", CODIGO_CANTON)
+)
+
+
+# Archivo de la capa geoespacial de distritos
+ARCHIVO_CAPA_DISTRITOS <- here(
+  "datos",
+  "otros",
+  paste0("distritos.gpkg")
+)
+
+
+# Archivo del mapa de indicadores de vulnerabilidad
+ARCHIVO_MAPA_INDICADORES_VULNERABILIDAD <- here(
+  DIRECTORIO_DATOS,
+  paste0("indicadores-vulnerabilidad-", CODIGO_CANTON, ".gpkg")
+)
+
+
+# DIRECTORIO de datos para gráficos de vulnerabilidad
+DIRECTORIO_DATOS_GRAFICOS_VULNERABILIDAD <- here(
+  DIRECTORIO_DATOS,
+  paste0("datos-graficos-vulnerabilidad-", CODIGO_CANTON)
+)
+
+# Archivo CSV con datos de población por distrito
+ARCHIVO_CSV_DATOS_POBLACION_POR_DISTRITO <- here(
+  DIRECTORIO_DATOS_GRAFICOS_VULNERABILIDAD,
+  paste0("poblacion-x-distrito-", CODIGO_CANTON, ".csv")
+)
+
+# Archivo CSV con datos de necesidades básicas insatisfechas
+ARCHIVO_CSV_DATOS_NECESIDADES_BASICAS_INSATISFECHAS <- here(
+  DIRECTORIO_DATOS_GRAFICOS_VULNERABILIDAD,
+  paste0("concarencias-sincarencias-", CODIGO_CANTON, ".csv")
+)
+
+# Archivo CSV con datos de población dependiente
+ARCHIVO_CSV_DATOS_POBLACION_DEPENDIENTE <- here(
+  DIRECTORIO_DATOS_GRAFICOS_VULNERABILIDAD,
+  paste0("ninios_adultosmayores_desocupados-x-distrito-", CODIGO_CANTON, ".csv")
+)
+
+
+# Etiquetas de las categorías de vulnerabilidad
+ETIQUETA_ALTO <- "Alta"
+ETIQUETA_ALTO_MEDIO <- "Alta media"
+ETIQUETA_MEDIO <- "Media"
+ETIQUETA_BAJO_MEDIO <- "Baja media"
+ETIQUETA_BAJO <- "Baja"
+
+# Colores de las categorías de vulnerabilidad
+COLOR_ALTO <- "red"
+COLOR_ALTO_MEDIO <- "orange"
+COLOR_MEDIO <- "yellow"
+COLOR_BAJO_MEDIO <- "lightgreen"
+COLOR_BAJO <- "darkgreen"
+
+# Colores de los sexos
+COLOR_HOMBRES = "pink"
+COLOR_MUJERES = "red"
+```
+
+
+```{r}
+#| label: carga-datos
+#| message: false
+#| warning: false
+
+
+# Carga de la capa de distritos de Costa Rica
+distritos_sf <-
+  st_read(ARCHIVO_CAPA_DISTRITOS, quiet = TRUE) |>
+  filter(CODCANT == CODIGO_CANTON)
+
+
+# Carga de datos del mapa de vulnerabilidad
+mapa_vulnerabilidad <-
+  st_read(ARCHIVO_MAPA_INDICADORES_VULNERABILIDAD, quiet = TRUE)
+
+# Modificación de valores
+mapa_vulnerabilidad <- 
+  mapa_vulnerabilidad |>
+  mutate(CATEGORIA_VULNERABILIDAD = recode(CATEGORIA_VULNERABILIDAD,
+    "Alto" = "Alta",
+    "Alto-medio" = "Alta media",
+    "Medio" = "Media",
+    "Bajo-medio" = "Baja media",
+    "Bajo" = "Baja"
+  ))
+
+
+# Carga del archivo CSV con datos de población por distrito
+datos_grafico_poblacion_por_distrito <-
+  read_csv(ARCHIVO_CSV_DATOS_POBLACION_POR_DISTRITO)
+
+# Carga del archivo CSV con datos de necesidades básicas insatisfechas
+datos_grafico_necesidades_basicas_insatisfechas <-
+  read_csv(ARCHIVO_CSV_DATOS_NECESIDADES_BASICAS_INSATISFECHAS)
+
+# Carga del archivo CSV con datos de población dependiente
+datos_grafico_poblacion_dependiente <-
+  read_csv(ARCHIVO_CSV_DATOS_POBLACION_DEPENDIENTE)
+```
+
+
+# General {orientation="columns" scrolling="true"}
+
+## Column
+
+```{r}
+#| label: mapa-distritos
+#| title: Distritos
+#| message: false
+#| warning: false
+
+
+paleta_distritos <- colorFactor(
+  topo.colors(length(distritos_sf$DISTRITO)), 
+  domain = distritos_sf$DISTRITO
+)
+
+# Mapa
+leaflet() |>
+  addProviderTiles(
+    provider = providers$CartoDB.PositronNoLabels,
+    group = "Mapa general (Carto)"
+  ) |>
+  addPolygons(
+    data = distritos_sf,
+    fillColor = ~paleta_distritos(distritos_sf$DISTRITO),
+    fillOpacity = 0.8,
+    color = "black",
+    stroke = TRUE,
+    weight = 1.0,
+    popup = paste(
+      paste0("<strong>Distrito: </strong>", distritos_sf$DISTRITO),
+      sep = "<br>"
+    ),
+    group = "Distritos"
+  ) |>
+  addLegend(
+    position = "bottomright",    
+    pal = paleta_distritos,
+    values = distritos_sf$DISTRITO,
+    title = "Distritos",
+    group = "Distritos"    
+  ) |>  
+  addLayersControl(
+    baseGroups = c("Mapa General (Carto)"),
+    overlayGroups = c("Distritos")
+  )
+```
+
+## Column
+
+```{r}
+#| label: grafico-poblacion-por-distrito
+#| title: Población por distrito
+#| message: false
+#| warning: false
+
+grafico_ggplot2 <-
+  datos_grafico_poblacion_por_distrito |>
+ggplot(aes(x = DISTRITO, y = POBLACION, fill = SEXO)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_manual(values = c("Hombres" = COLOR_HOMBRES, "Mujeres" = COLOR_MUJERES)) +
+  geom_text(aes(label = POBLACION), position = position_dodge(width = 0.9), vjust = -0.3) +
+  labs(x = NULL, y = "Cantidad de personas") +
+  theme_minimal() +
+  theme(legend.title = element_blank())
+
+grafico_ggplot2
+```
+
+# Vulnerabilidad {orientation="columns" scrolling="true"}
+
+## Column
+
+```{r}
+#| label: mapa-vulnerabilidad
+#| title: Vulnerabilidad por UGM
+#| message: false
+#| warning: false
+
+
+# Colores de la paleta de categorías de vulnerabilidad
+colores_categorias_vulnerabilidad <- c(
+  COLOR_ALTO, COLOR_ALTO_MEDIO, COLOR_MEDIO, COLOR_BAJO_MEDIO, COLOR_BAJO
+)
+
+# Etiquetas de la paleta de categorías de vulnerabilidad
+etiquetas_categorias_vulnerabilidad <- c(
+  ETIQUETA_ALTO, ETIQUETA_ALTO_MEDIO, ETIQUETA_MEDIO, ETIQUETA_BAJO_MEDIO, ETIQUETA_BAJO
+)
+
+# Factor que ordena los niveles de la columna CATEGORIA_VULNERABILIDAD
+mapa_vulnerabilidad$CATEGORIA_VULNERABILIDAD <- 
+  factor(
+    mapa_vulnerabilidad$CATEGORIA_VULNERABILIDAD, 
+    levels = etiquetas_categorias_vulnerabilidad
+  )
+
+
+# Paleta de colores de categorías de vulnerabilidad
+paleta_categorias_vulnerabilidad <- colorFactor(
+    palette = colores_categorias_vulnerabilidad, 
+    domain = mapa_vulnerabilidad$CATEGORIA_VULNERABILIDAD,
+    na.color = "transparent"
+)
+
+
+# Mapa
+leaflet() |>
+  addTiles(group = "Mapa general (OSM)") |>
+  addPolygons(
+    data = mapa_vulnerabilidad,
+    fillColor = ~ paleta_categorias_vulnerabilidad(mapa_vulnerabilidad$CATEGORIA_VULNERABILIDAD),
+    fillOpacity = 0.8,
+    color = "black",
+    stroke = TRUE,
+    weight = 1.0,
+    popup = paste(
+      paste0("<strong>UGM: </strong>", mapa_vulnerabilidad$UGM_LLAVE),
+      paste0("<strong>Distrito: </strong>", mapa_vulnerabilidad$DISTRITO),
+      paste0("<strong>Categoría de vulnerabilidad: </strong>", mapa_vulnerabilidad$CATEGORIA_VULNERABILIDAD),
+      paste0("<strong>Índice de vulnerabilidad: </strong>", round(mapa_vulnerabilidad$INDICE_VULNERABILIDAD_INTEGRADO, 2)),
+      sep = "<br>"
+    ),
+    group = "Vulnerabilidad"
+  ) |>  
+  addLegend(
+    position = "bottomright",    
+    pal = paleta_categorias_vulnerabilidad,
+    values = mapa_vulnerabilidad$CATEGORIA_VULNERABILIDAD,
+    title = "Vulnerabilidad",
+    group = "Vulnerabilidad"    
+  ) |>
+  addLayersControl(
+    baseGroups = c("Mapa General (OSM)"),
+    overlayGroups = c("Vulnerabilidad")
+  )
+```
+
+## Column {.tabset}
+
+```{r}
+#| label: grafico-necesidades-basicas-insatisfechas
+#| title: Necesidades básicas insatisfechas
+#| message: false
+#| warning: false
+
+grafico_ggplot2 <-
+  datos_grafico_necesidades_basicas_insatisfechas |>
+  ggplot(aes(
+    x = CONDICION, 
+    y = POBLACION, 
+    fill = SEXO, 
+    text = paste(
+      paste0("Condición: ", CONDICION),
+      paste0("Población: ", POBLACION),
+      paste0("Sexo: ", SEXO),
+      sep = "<br>"
+    )
+  )) +
+  geom_col(position = "dodge") +
+  scale_fill_manual(values = c(
+    "Hombres" = COLOR_HOMBRES, 
+    "Mujeres" = COLOR_MUJERES
+  )) +
+  # geom_text(
+  #   aes(label = POBLACION), 
+  #   position = position_dodge(width = 0.9), 
+  #   vjust = -1,
+  #   size = 3,
+  # ) + 
+  labs(x = NULL, y = "Cantidad de personas") +
+  theme_minimal() +
+  theme(legend.title = element_blank())
+
+grafico_ggplot2 |>
+  ggplotly(tooltip = "text") |>
+  layout(legend = list(title = list(text = ""))) |>
+  config(locale = "es")
+```
+
+```{r}
+#| label: grafico-poblacion-dependiente
+#| title: Población dependiente
+#| message: false
+#| warning: false
+
+
+# Agrupar y calcular porcentajes
+datos_porcentaje <- datos_grafico_poblacion_dependiente %>%
+  group_by(SEXO, CATEGORIA) %>%
+  summarise(POBLACION = sum(POBLACION)) %>%
+  group_by(SEXO) %>%
+  mutate(PORCENTAJE = POBLACION / sum(POBLACION) * 100)
+
+# Crear el gráfico
+ggplot(datos_porcentaje, aes(x = SEXO, y = PORCENTAJE, fill = CATEGORIA)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  scale_fill_manual(values = c("Adultos mayores" = "pink", "Niños" = "red", "Desocupados" = "darkred")) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal() +
+  theme(legend.title = element_blank())
+```
+
+
+# Exposición
+
+# Amenaza
+
+# Análisis de riesgo

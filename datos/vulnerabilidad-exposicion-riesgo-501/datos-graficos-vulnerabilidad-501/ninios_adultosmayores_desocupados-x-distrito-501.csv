@@ -1,0 +1,31 @@
+DISTRITO,CATEGORIA,SEXO,POBLACION
+Liberia           ,Niños,Hombres,7478
+Liberia           ,Niños,Mujeres,7230
+Liberia           ,Adultos mayores,Mujeres,1643
+Liberia           ,Adultos mayores,Hombres,1289
+Liberia           ,Desocupados,Hombres,770
+Cañas Dulces      ,Niños,Hombres,441
+Cañas Dulces      ,Niños,Mujeres,397
+Curubandé         ,Niños,Mujeres,364
+Nacascolo         ,Niños,Hombres,357
+Curubandé         ,Niños,Hombres,343
+Nacascolo         ,Niños,Mujeres,321
+Liberia           ,Desocupados,Mujeres,266
+Mayorga           ,Niños,Hombres,242
+Mayorga           ,Niños,Mujeres,234
+Cañas Dulces      ,Adultos mayores,Mujeres,132
+Cañas Dulces      ,Adultos mayores,Hombres,111
+Curubandé         ,Adultos mayores,Hombres,92
+Curubandé         ,Adultos mayores,Mujeres,87
+Nacascolo         ,Adultos mayores,Mujeres,55
+Mayorga           ,Adultos mayores,Hombres,53
+Nacascolo         ,Adultos mayores,Hombres,53
+Mayorga           ,Adultos mayores,Mujeres,42
+Cañas Dulces      ,Desocupados,Hombres,27
+Nacascolo         ,Desocupados,Hombres,21
+Mayorga           ,Desocupados,Hombres,20
+Curubandé         ,Desocupados,Hombres,16
+Cañas Dulces      ,Desocupados,Mujeres,15
+Nacascolo         ,Desocupados,Mujeres,11
+Curubandé         ,Desocupados,Mujeres,4
+Mayorga           ,Desocupados,Mujeres,2

@@ -1,0 +1,43 @@
+DISTRITO,CATEGORIA,SEXO,POBLACION
+Nicoya            ,Niños,Hombres,3002
+Nicoya            ,Niños,Mujeres,2915
+Nicoya            ,Adultos mayores,Mujeres,1201
+Nicoya            ,Adultos mayores,Hombres,1069
+Nosara            ,Niños,Hombres,718
+Mansión           ,Niños,Hombres,717
+San Antonio       ,Niños,Mujeres,697
+Nosara            ,Niños,Mujeres,678
+San Antonio       ,Niños,Hombres,659
+Mansión           ,Niños,Mujeres,654
+San Antonio       ,Adultos mayores,Hombres,467
+San Antonio       ,Adultos mayores,Mujeres,462
+Sámara            ,Niños,Hombres,452
+Sámara            ,Niños,Mujeres,448
+Belén de Nosarita ,Niños,Mujeres,361
+Belén de Nosarita ,Niños,Hombres,354
+Mansión           ,Adultos mayores,Hombres,313
+Mansión           ,Adultos mayores,Mujeres,301
+Quebrada Honda    ,Niños,Hombres,276
+Nicoya            ,Desocupados,Hombres,271
+Quebrada Honda    ,Niños,Mujeres,269
+Quebrada Honda    ,Adultos mayores,Mujeres,164
+Quebrada Honda    ,Adultos mayores,Hombres,148
+Belén de Nosarita ,Adultos mayores,Hombres,142
+Nosara            ,Adultos mayores,Hombres,137
+Sámara            ,Adultos mayores,Hombres,130
+Nosara            ,Adultos mayores,Mujeres,126
+Belén de Nosarita ,Adultos mayores,Mujeres,114
+Sámara            ,Adultos mayores,Mujeres,104
+Nicoya            ,Desocupados,Mujeres,85
+San Antonio       ,Desocupados,Hombres,60
+Nosara            ,Desocupados,Hombres,43
+Mansión           ,Desocupados,Hombres,41
+Quebrada Honda    ,Desocupados,Hombres,28
+Sámara            ,Desocupados,Hombres,28
+Belén de Nosarita ,Desocupados,Hombres,17
+Nosara            ,Desocupados,Mujeres,14
+San Antonio       ,Desocupados,Mujeres,8
+Sámara            ,Desocupados,Mujeres,7
+Mansión           ,Desocupados,Mujeres,6
+Quebrada Honda    ,Desocupados,Mujeres,3
+Belén de Nosarita ,Desocupados,Mujeres,2

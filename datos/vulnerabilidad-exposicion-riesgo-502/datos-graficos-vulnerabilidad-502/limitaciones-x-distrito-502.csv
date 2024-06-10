@@ -1,0 +1,99 @@
+DISTRITO,LIMITACION,SEXO,POBLACION
+Nicoya            ,Visual,Mujeres,1223
+Nicoya            ,Visual,Hombres,907
+Nicoya            ,Caminar,Mujeres,504
+Nicoya            ,Caminar,Hombres,459
+San Antonio       ,Visual,Mujeres,324
+San Antonio       ,Visual,Hombres,287
+Nicoya            ,Auditiva,Mujeres,259
+Nicoya            ,Auditiva,Hombres,245
+Nosara            ,Visual,Mujeres,233
+San Antonio       ,Caminar,Mujeres,203
+Mansión           ,Visual,Mujeres,202
+San Antonio       ,Caminar,Hombres,200
+Nosara            ,Visual,Hombres,195
+Mansión           ,Visual,Hombres,188
+Nicoya            ,Intelectual,Hombres,177
+Mansión           ,Caminar,Mujeres,172
+Nicoya            ,Intelectual,Mujeres,170
+Nicoya            ,Brazos-piernas,Hombres,160
+Nicoya            ,Brazos-piernas,Mujeres,158
+Mansión           ,Caminar,Hombres,151
+Nicoya            ,Hablar,Hombres,131
+Sámara            ,Visual,Mujeres,124
+Sámara            ,Visual,Hombres,122
+San Antonio       ,Auditiva,Hombres,112
+Quebrada Honda    ,Visual,Mujeres,111
+Nicoya            ,Hablar,Mujeres,109
+Nosara            ,Caminar,Mujeres,99
+Nicoya            ,Mental,Hombres,98
+San Antonio       ,Auditiva,Mujeres,96
+Nicoya            ,Mental,Mujeres,90
+Belén de Nosarita ,Visual,Hombres,85
+Quebrada Honda    ,Visual,Hombres,80
+Belén de Nosarita ,Visual,Mujeres,79
+Quebrada Honda    ,Caminar,Mujeres,71
+Nosara            ,Caminar,Hombres,70
+Mansión           ,Auditiva,Hombres,70
+Mansión           ,Auditiva,Mujeres,67
+San Antonio       ,Brazos-piernas,Hombres,65
+Mansión           ,Brazos-piernas,Mujeres,64
+Belén de Nosarita ,Caminar,Hombres,63
+Belén de Nosarita ,Caminar,Mujeres,56
+Sámara            ,Caminar,Mujeres,56
+Mansión           ,Brazos-piernas,Hombres,55
+Quebrada Honda    ,Caminar,Hombres,54
+Sámara            ,Caminar,Hombres,52
+San Antonio       ,Brazos-piernas,Mujeres,51
+Mansión           ,Hablar,Hombres,48
+Belén de Nosarita ,Auditiva,Hombres,47
+Nosara            ,Auditiva,Hombres,44
+Sámara            ,Auditiva,Hombres,42
+Mansión           ,Intelectual,Hombres,40
+San Antonio       ,Hablar,Hombres,39
+Quebrada Honda    ,Auditiva,Hombres,38
+Nosara            ,Auditiva,Mujeres,38
+San Antonio       ,Intelectual,Hombres,35
+San Antonio       ,Hablar,Mujeres,35
+Nosara            ,Brazos-piernas,Hombres,35
+Nosara            ,Brazos-piernas,Mujeres,33
+Belén de Nosarita ,Brazos-piernas,Hombres,32
+Belén de Nosarita ,Auditiva,Mujeres,30
+Sámara            ,Auditiva,Mujeres,30
+Mansión           ,Intelectual,Mujeres,29
+Sámara            ,Brazos-piernas,Hombres,29
+Quebrada Honda    ,Intelectual,Hombres,27
+Sámara            ,Brazos-piernas,Mujeres,27
+Nosara            ,Hablar,Hombres,26
+San Antonio       ,Intelectual,Mujeres,25
+San Antonio       ,Mental,Hombres,24
+Quebrada Honda    ,Auditiva,Mujeres,24
+Mansión           ,Hablar,Mujeres,23
+Mansión           ,Mental,Mujeres,22
+Quebrada Honda    ,Intelectual,Mujeres,22
+Belén de Nosarita ,Brazos-piernas,Mujeres,22
+San Antonio       ,Mental,Mujeres,21
+Nosara            ,Hablar,Mujeres,20
+Mansión           ,Mental,Hombres,19
+Belén de Nosarita ,Hablar,Hombres,19
+Quebrada Honda    ,Hablar,Hombres,19
+Sámara            ,Hablar,Hombres,18
+Belén de Nosarita ,Intelectual,Hombres,17
+Sámara            ,Intelectual,Hombres,17
+Quebrada Honda    ,Brazos-piernas,Hombres,17
+Quebrada Honda    ,Hablar,Mujeres,16
+Nosara            ,Intelectual,Mujeres,15
+Quebrada Honda    ,Brazos-piernas,Mujeres,15
+Belén de Nosarita ,Hablar,Mujeres,12
+Nosara            ,Mental,Hombres,11
+Sámara            ,Mental,Hombres,10
+Quebrada Honda    ,Mental,Mujeres,10
+Nosara            ,Intelectual,Hombres,10
+Sámara            ,Hablar,Mujeres,10
+Belén de Nosarita ,Mental,Hombres,9
+Nosara            ,Mental,Mujeres,9
+Belén de Nosarita ,Intelectual,Mujeres,9
+Sámara            ,Intelectual,Mujeres,8
+Sámara            ,Mental,Mujeres,7
+Quebrada Honda    ,Mental,Hombres,6
+Belén de Nosarita ,Mental,Mujeres,6

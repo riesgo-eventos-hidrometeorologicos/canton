@@ -1,0 +1,71 @@
+DISTRITO,LIMITACION,SEXO,POBLACION
+Liberia           ,Visual,Mujeres,1272
+Liberia           ,Visual,Hombres,975
+Liberia           ,Caminar,Mujeres,708
+Liberia           ,Caminar,Hombres,534
+Liberia           ,Auditiva,Mujeres,299
+Liberia           ,Auditiva,Hombres,276
+Liberia           ,Brazos-piernas,Mujeres,227
+Liberia           ,Intelectual,Hombres,221
+Liberia           ,Hablar,Hombres,211
+Liberia           ,Brazos-piernas,Hombres,181
+Liberia           ,Intelectual,Mujeres,155
+Liberia           ,Mental,Hombres,150
+Liberia           ,Hablar,Mujeres,147
+Liberia           ,Mental,Mujeres,127
+Curubandé         ,Visual,Mujeres,67
+Mayorga           ,Visual,Hombres,60
+Mayorga           ,Visual,Mujeres,52
+Nacascolo         ,Visual,Mujeres,52
+Curubandé         ,Visual,Hombres,41
+Nacascolo         ,Visual,Hombres,39
+Curubandé         ,Caminar,Hombres,34
+Curubandé         ,Caminar,Mujeres,32
+Cañas Dulces      ,Visual,Mujeres,30
+Nacascolo         ,Caminar,Hombres,29
+Cañas Dulces      ,Caminar,Hombres,26
+Mayorga           ,Caminar,Mujeres,26
+Mayorga           ,Caminar,Hombres,25
+Cañas Dulces      ,Auditiva,Hombres,24
+Cañas Dulces      ,Visual,Hombres,22
+Mayorga           ,Intelectual,Hombres,22
+Cañas Dulces      ,Caminar,Mujeres,22
+Nacascolo         ,Caminar,Mujeres,21
+Cañas Dulces      ,Intelectual,Hombres,18
+Nacascolo         ,Auditiva,Hombres,17
+Mayorga           ,Auditiva,Hombres,16
+Cañas Dulces      ,Brazos-piernas,Hombres,14
+Cañas Dulces      ,Auditiva,Mujeres,14
+Curubandé         ,Brazos-piernas,Hombres,13
+Mayorga           ,Brazos-piernas,Mujeres,13
+Curubandé         ,Auditiva,Mujeres,13
+Nacascolo         ,Intelectual,Hombres,12
+Cañas Dulces      ,Intelectual,Mujeres,12
+Mayorga           ,Auditiva,Mujeres,12
+Curubandé         ,Auditiva,Hombres,11
+Nacascolo         ,Intelectual,Mujeres,10
+Curubandé         ,Hablar,Mujeres,10
+Curubandé         ,Intelectual,Hombres,9
+Nacascolo         ,Hablar,Hombres,9
+Curubandé         ,Hablar,Hombres,8
+Mayorga           ,Brazos-piernas,Hombres,8
+Curubandé         ,Brazos-piernas,Mujeres,8
+Nacascolo         ,Brazos-piernas,Mujeres,8
+Curubandé         ,Intelectual,Mujeres,7
+Mayorga           ,Intelectual,Mujeres,7
+Cañas Dulces      ,Hablar,Hombres,7
+Cañas Dulces      ,Brazos-piernas,Mujeres,7
+Mayorga           ,Hablar,Hombres,6
+Cañas Dulces      ,Mental,Mujeres,5
+Curubandé         ,Mental,Mujeres,5
+Nacascolo         ,Hablar,Mujeres,5
+Nacascolo         ,Brazos-piernas,Hombres,5
+Curubandé         ,Mental,Hombres,4
+Nacascolo         ,Mental,Hombres,4
+Mayorga           ,Mental,Mujeres,4
+Mayorga           ,Hablar,Mujeres,4
+Nacascolo         ,Auditiva,Mujeres,4
+Cañas Dulces      ,Mental,Hombres,3
+Cañas Dulces      ,Hablar,Mujeres,3
+Mayorga           ,Mental,Hombres,1
+Nacascolo         ,Mental,Mujeres,0
