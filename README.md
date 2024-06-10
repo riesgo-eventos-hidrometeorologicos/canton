@@ -1,8 +1,8 @@
 # Cantones
 
 ## Guanacaste
-- [Liberia](liberia/index.html)
-- [Nicoya](nicoya/index.html)
+- [Liberia](liberia/)
+- [Nicoya](nicoya/)
 
 ```bash
 quarto render index.qmd --output-dir liberia --execute-param codigo_canton="501"
